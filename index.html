@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Image Carousel</title>
-    <link rel="stylesheet" href="./src/style.css" />
-  </head>
-  <body>
-    <div class="button">
-      <button id="prev"></button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Carousel</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+  <div class="button">
+    <button id="prev"></button>
+  </div>
+  <div class="carousel" id="carousel">
+    <div class="carousel_images">
+      <img src="/src/Images/first.jpeg" alt="" />
+      <img src="/src/Images/three.png" alt="" />
+      <img src="/src/Images/third.jpg" alt="" />
+      <img src="/src/Images/fourth.jpg" alt="" />
     </div>
-
-    <div class="carousel" id="carousel">
-      <div class="carousel_images">
-        <img src="./src/Images/first.jpg" alt="" />
-        <img src="./src/Images/three.png" alt="" />
-        <img src="./src/Images/third.jpg" alt="" />
-        <img src="./src/Images/fourth.jpg" alt="" />
-      </div>
-    </div>
-    <div class="button">
-      <button id="next"></button>
-    </div>
-    <script type="module" src="./src/main.js"></script>
-  </body>
+  </div>
+  <div class="button">
+    <button id="next"></button>
+  </div>
+  <script type="module" src="src/main.ts"></script>
+</body>
 </html>

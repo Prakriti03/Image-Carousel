@@ -34,8 +34,8 @@ var Carousel = /** @class */ (function () {
         this.images.forEach(function (img, i) {
             if (i === index) {
                 img.style.left = "0";
-                // } else if (i === (index - 1 + this.totalSlides) % this.totalSlides) {
-                //   img.style.left = "-100%";
+            } else if (i === (index - 1 + this.totalSlides) % this.totalSlides) {
+                  img.style.left = "-100%";
             }
             else {
                 img.style.left = "100%";

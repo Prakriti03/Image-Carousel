@@ -3,9 +3,6 @@
   margin: 0;
   padding: 0;
 }
-html {
-  scroll-behavior: smooth;
-}
 
 body {
   display: flex;
@@ -15,32 +12,26 @@ body {
   background-color: beige;
   gap: 2%;
 }
-
 .carousel {
   position: relative;
-  /* overflow: hidden; */
+  overflow: hidden;
   width: 60%;
   max-width: 600px;
   height: 85%;
 }
-
 .carousel_images {
-  position: relative;
+  /* position: relative; */
   width: 100%;
   height: 100%;
 }
-
 .carousel_images img {
   position: absolute;
   width: 100%;
   height: 100%;
-  left: 100%; /* Hide images initially */
+  left: 100%; 
   top: 0;
-
-  /* transition: left 0.5s ease-in-out; */
-  /* transition: ease-out; */
+  border-radius: 10%;
 }
-
 #prev,
 #next {
   border-style: solid;
@@ -49,14 +40,13 @@ body {
   height: 0;
 }
 #prev {
-  border-width: 20px 30px 20px 0;
-  border-color: beige purple beige beige;
+  border-width: 10px 20px 10px 0;
+  border-color: beige blue beige beige;
 }
 #next {
-  border-width: 20px 0 20px 30px;
-  border-color: beige beige beige purple;
+  border-width: 10px 0 10px 20px;
+  border-color: beige beige beige blue;
 }
-
 /* Indicator dots */
 .indicator-container {
   position: absolute;
@@ -64,18 +54,16 @@ body {
   left: 50%;
   transform: translateX(-50%);
 }
-
 .dot {
   width: 15px;
   height: 15px;
-  background-color: white;
+  background-color: beige;
   border-radius: 50%;
   display: inline-block;
   margin: 0 15px;
   cursor: pointer;
-  border: 1px solid purple;
+  border: 2px solid white;
 }
-
 .dot.active {
-  background-color: purple;
+  background-color: blue;
 }
