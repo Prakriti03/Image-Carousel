@@ -20,7 +20,6 @@ body {
   height: 85%;
 }
 .carousel_images {
-  /* position: relative; */
   width: 100%;
   height: 100%;
 }
@@ -31,6 +30,7 @@ body {
   left: 100%; 
   top: 0;
   border-radius: 10%;
+  transition: 2s ease-in-out;
 }
 #prev,
 #next {
@@ -47,7 +47,6 @@ body {
   border-width: 10px 0 10px 20px;
   border-color: beige beige beige blue;
 }
-/* Indicator dots */
 .indicator-container {
   position: absolute;
   bottom: 10px;

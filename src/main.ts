@@ -6,6 +6,7 @@ class Carousel {
   private totalSlides: number;
   private imageContainer: HTMLDivElement;
   private indicatorDots: HTMLSpanElement[];
+  private intervalID : number | null=null;
 
   constructor(carouselElement: HTMLElement, prevButtonElement: HTMLElement, nextButtonElement: HTMLElement) {
     this.imageContainer = carouselElement.querySelector('.carousel_images') as HTMLDivElement;
@@ -28,7 +29,8 @@ class Carousel {
     this.showSlide(this.currentSlide);
 
     const prevButton = prevButtonElement as HTMLButtonElement;
-    prevButton.addEventListener('click', () => this.moveSlide('prev'));
+    prevButton.addEventListener('click', () => {
+      this.moveSlide('prev')});
 
     const nextButton = nextButtonElement as HTMLButtonElement;
     nextButton.addEventListener('click', () => this.moveSlide('next'));
@@ -36,39 +38,45 @@ class Carousel {
     this.startAutoplay();
   }
 
+ 
   private showSlide(index: number): void {
-    this.images.forEach((img, i) => {
-      if (i === index) {
-        img.style.left = '0';
-      } else if (i === (index - 1 + this.totalSlides) % this.totalSlides) {
-        img.style.left = '-100%';
-      } else {
-        img.style.left = '100%';
-      }
-    });
-
-    // Update indicator dots
+    this.images.forEach((image, i)=>{
+      const newPosition = (i - index) * 100;
+      image.style.left = `${newPosition}%`;
+    })
     this.indicatorDots.forEach((dot, i) => {
       dot.classList.toggle('active', i === index);
     });
   }
 
   private moveSlide(direction: 'prev' | 'next'): void {
+    this.stopAutoplay();
     if (direction === 'prev') {
       this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
     } else if (direction === 'next') {
       this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
     }
     this.showSlide(this.currentSlide);
+    this.startAutoplay();
   }
 
   private goToSlide(index: number): void {
-    this.currentSlide = index;
-    this.showSlide(this.currentSlide);
+    this.stopAutoplay();
+    if (index !== this.currentSlide) {
+      this.currentSlide = index;
+      this.showSlide(this.currentSlide);
+    }
+    this.startAutoplay();
   }
 
   private startAutoplay(): void {
-    setInterval(() => this.moveSlide('next'), 5000);
+    this.intervalID = setInterval(() => this.moveSlide('next'), 5000);
+  }
+  private stopAutoplay(): void{
+    if (this.intervalID !== null){
+
+      clearInterval(this.intervalID);
+    }
   }
 }
 
